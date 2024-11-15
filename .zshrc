@@ -27,6 +27,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# pyenv
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -34,7 +39,5 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias vim=nvim
-
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+alias vim='nvim'
+alias lg='lazygit'
